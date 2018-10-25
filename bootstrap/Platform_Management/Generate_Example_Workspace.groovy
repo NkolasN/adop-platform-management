@@ -3,12 +3,12 @@ def platformManagementFolderName= "/Platform_Management"
 def platformManagementFolder = folder(platformManagementFolderName) { displayName('Platform Management') }
 
 def rootUrl = "${ROOT_URL}"
-gerritRootUrl = rootUrl.replaceAll("jenkins","gerrit")
+gitlabRootUrl = rootUrl.replaceAll("jenkins","gitlab")
 
 
 // Jobs
 def generateExampleWorkspaceJob = workflowJob(platformManagementFolderName + "/Generate_Example_Workspace")
- 
+
 generateExampleWorkspaceJob.with{
     parameters{
         stringParam("projectName","ExampleProject","")
@@ -19,8 +19,8 @@ generateExampleWorkspaceJob.with{
         stringParam("workspaceAdmin","Admin","")
         stringParam("workspaceDeveloper","Developer","")
         stringParam("workspaceViewer","Viewer","")
-        stringParam("cartridgeURL","ssh://jenkins@gerrit:29418/cartridges/adop-cartridge-java.git","")
-        stringParam("scmProvider",gerritRootUrl + " - ssh (adop-gerrit-ssh)","")
+        stringParam("cartridgeURL","https://github.com/Accenture/adop-cartridge-java.git","")
+        stringParam("scmProvider",gitlabRootUrl + " - ssh (adop-gitlab-ssh)","")
     }
     properties {
         rebuild {
@@ -84,4 +84,4 @@ node {
 sandbox()
         }
     }
-} 
+}
