@@ -1,5 +1,5 @@
 // Constants
-def platformToolsGitURL = "https://github.com/Accenture/adop-platform-management.git"
+def platformToolsGitURL = "https://github.com/gem2578/adop-platform-management.git"
 
 def workspaceManagementFolderName= "/Workspace_Management"
 def workspaceManagementFolder = folder(workspaceManagementFolderName) { displayName('Workspace Management') }
@@ -78,7 +78,7 @@ VIEWER_USERS=$(echo ${VIEWER_USERS} | tr ',' ' ')
                 url("${platformToolsGitURL}")
                 credentials("adop-jenkins-master")
             }
-            branch(adopPlatformManagementVersionRef)
+            branch("testing")
         }
     }
 }

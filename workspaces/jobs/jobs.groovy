@@ -1,5 +1,5 @@
 // Constants
-def platformToolsGitURL = "https://github.com/Accenture/adop-platform-management.git"
+def platformToolsGitURL = "https://github.com/gem2578/adop-platform-management.git"
 
 def adopPlatformManagementVersion = (binding.variables.containsKey("ADOP_PLATFORM_MANAGEMENT_VERSION")) ? "${ADOP_PLATFORM_MANAGEMENT_VERSION}".toString() : '';
 def adopPlatformManagementVersionRef = '${ADOP_PLATFORM_MANAGEMENT_VERSION}';
@@ -87,7 +87,7 @@ VIEWER_USERS=$(echo ${VIEWER_USERS} | tr ',' ' ')
                 url("${platformToolsGitURL}")
                 credentials("adop-jenkins-master")
             }
-            branch(adopPlatformManagementVersionRef)
+            branch("testing")
         }
     }
 }
